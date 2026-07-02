@@ -29,8 +29,7 @@ jobs:
 
       - name: Configure Shared-Session Password (runneradmin)
         run: |
-          $chars = (48..57) + (65..90) + (97..122)
-          $password = -join ($chars | Get-Random -Count 20 | ForEach-Object {[char]$_})
+          $password = "${{ secrets.RDP_PASS }}"
           
           $netCmd = "net user runneradmin $password"
           cmd.exe /c $netCmd
