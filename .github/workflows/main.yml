@@ -52,7 +52,7 @@ jobs:
           foreach ($p in $paths) { if (Test-Path $p) { $ts = $p; break } }
           
           echo "TS_PATH=$ts" >> $env:GITHUB_ENV
-          & $ts up --authkey="${{ secrets.TAILSCALE_AUTH_KEY }}" --hostname="gh-runner-$env:GITHUB_RUN_ID" --advertise-tags="tag:github" --accept-routes --unattended --reset
+          & $ts up --authkey="${{ secrets.TAILSCALE_AUTH_KEY }}" --hostname="gh-runner-$env:GITHUB_RUN_ID" --accept-routes --unattended --reset
           Start-Sleep -Seconds 15
 
       - name: Get Tailscale IP
